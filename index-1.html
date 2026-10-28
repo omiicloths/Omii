@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="color-scheme: dark;"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omii – Clothing Store, Peshawar</title>
+<style>
+:root{--bg:#faf7f2;--fg:#1d1a16;--mut:#6f675c;--card:#fff;--bd:#e6dfd3;--pri:#0f5132;--onp:#fff;--acc:#b8893b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130f;--fg:#f3eee6;--mut:#a89f90;--card:#201d17;--bd:#35302600;--bd:#353026;--pri:#3aa571;--onp:#08130d;--acc:#d9a954;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15130f;--fg:#f3eee6;--mut:#a89f90;--card:#201d17;--bd:#353026;--pri:#3aa571;--onp:#08130d;--acc:#d9a954;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--bd)}
+.logo{font:700 26px Georgia,serif;letter-spacing:1px;color:var(--pri)}
+.btn{border:1px solid var(--bd);background:var(--card);color:var(--fg);padding:9px 16px;border-radius:10px;font:600 14px inherit;font-family:inherit;cursor:pointer}
+.btn.pri{background:var(--pri);color:var(--onp);border-color:var(--pri)}.btn:disabled{opacity:.4}.btn.red{color:#c0392b}
+.hero{text-align:center;padding:56px 20px;background:linear-gradient(135deg,var(--pri),#06301d);color:#fff}
+.hero h1{font:700 52px Georgia,serif;margin:0;letter-spacing:3px}.hero p{margin:8px 0 22px;opacity:.9}.hero .btn{background:var(--acc);border-color:var(--acc);color:#1d1a16}
+main,.wrap{max-width:1100px;margin:auto;padding:22px 16px}h2{font:700 24px Georgia,serif;margin:0 0 14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:10px}.chip{white-space:nowrap}.chip.on{background:var(--pri);color:var(--onp)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.im{position:relative;aspect-ratio:4/5;background:#e9e2d4;display:flex;align-items:center;justify-content:center;font-size:56px}.im img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:8px;left:8px;background:#c0392b;color:#fff;font-size:12px;padding:2px 8px;border-radius:20px;font-style:normal}
+.in{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}.in h3{margin:0;font-size:16px}.in small,.in p{color:var(--mut);margin:0;font-size:13px}.in b{color:var(--pri);font-size:17px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--fg);font:inherit;margin:4px 0 10px}
+label{font-size:13px;color:var(--mut);font-weight:600}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rev{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px}.st{color:var(--acc)}
+.ov{position:fixed;inset:0;background:#0009;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.pn{background:var(--bg);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+.pn h2{display:flex;justify-content:space-between}.ln{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px}.box{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
+.note{font-size:13px;color:var(--mut)}footer{text-align:center;padding:26px 16px;color:var(--mut);font-size:14px;border-top:1px solid var(--bd)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:#1d1a16;color:#fff;padding:10px 18px;border-radius:30px;z-index:90;font-size:14px;display:none;max-width:90%}
+.thumb{width:48px;height:60px;object-fit:cover;border-radius:6px;background:#e9e2d4}#pv img{width:90px;border-radius:8px}
+</style></head><body>
+<div id="root"></div><div id="toast"></div>
+<script type="application/json" id="data">{"name":"Omii","tag":"Elegant clothing for every occasion – Peshawar, Pakistan","wa":"923215599862","ph":"","del":300,"ep":"03369017411","jc":"","bank":"","cats":"","products":[{"id":"s1","n":"Sample Lawn Suit (delete me)","p":3500,"c":"Women","s":"S,M,L","d":"3-piece printed lawn suit","img":"","out":false},{"id":"s2","n":"Sample Shalwar Kameez (delete me)","p":4200,"c":"Men","s":"M,L,XL","d":"Premium cotton, ready to wear","img":"","out":false}],"reviews":[]}</script>
+<script>
+const $=s=>document.querySelector(s);
+const CITIES=['Peshawar','Islamabad','Rawalpindi','Lahore','Karachi','Faisalabad','Multan','Hyderabad','Quetta','Gujranwala','Sialkot','Sargodha','Bahawalpur','Sukkur','Larkana','Mardan','Abbottabad','Mingora (Swat)','Kohat','Bannu','Dera Ismail Khan','Nowshera','Charsadda','Swabi','Mansehra','Haripur','Chitral','Gilgit','Skardu','Muzaffarabad','Mirpur AJK','Sahiwal','Gujrat','Jhelum','Sheikhupura','Rahim Yar Khan','Okara','Kasur','Dera Ghazi Khan','Mianwali','Chiniot','Jhang','Attock','Chakwal','Khuzdar','Turbat','Gwadar','Nawabshah','Mirpur Khas','Jacobabad','Other city'];
+let IB=[];try{IB=JSON.parse(localStorage.getItem('omii_inbox')||'[]')}catch(e){}
+let D=JSON.parse($('#data').textContent),cart=[],cat='All',view='shop',tab='o',dirty=false,editId=null,modal='',pend='';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rs=n=>'Rs. '+Number(n||0).toLocaleString('en-PK');
+const val=id=>($('#'+id)||{value:''}).value.trim();
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2800)}
+async function hx(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function build(){const c=document.documentElement.cloneNode(true);c.querySelector('#root').innerHTML='';c.querySelector('#toast').textContent='';c.querySelector('#toast').removeAttribute('style');c.querySelector('#data').textContent=JSON.stringify(D).replace(/</g,'\\u003c');return'<!DOCTYPE html>\n'+c.outerHTML}
+function render(){if(view==='admin'&&dirty){try{localStorage.setItem('omii_draft',JSON.stringify(D))}catch(e){toast('Phone storage full – download your file now')}}$('#root').innerHTML=view==='shop'?shopView():view==='login'?loginView():adminView();if(modal)$('#root').insertAdjacentHTML('beforeend',modalView());}
+function stars(n){return'★'.repeat(n)+'☆'.repeat(5-n)}
+function shopView(){const cats=['All',...new Set(D.products.map(p=>p.c).filter(Boolean))];const l=D.products.filter(p=>cat==='All'||p.c===cat);
+return`<div class="top"><span class="logo">${esc(D.name)}</span><span><button class="btn" onclick="view='login';render()">🔑 Owner</button> <button class="btn pri" onclick="openCart()">🛒 Cart (${cart.reduce((a,i)=>a+i.q,0)})</button></span></div>
+<section class="hero"><h1>${esc(D.name)}</h1><p>${esc(D.tag)}</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop now</button></section>
+<main id="shop"><h2>Our Collection</h2><div class="chips">${cats.map(c=>`<button class="btn chip ${c===cat?'on':''}" onclick="cat='${esc(c).replace(/'/g,'')}';render()">${esc(c)}</button>`).join('')}</div>
+<div class="grid">${l.map(card).join('')||'<p class="note">New collection coming soon.</p>'}</div></main>
+<div class="wrap"><h2>Customer Reviews</h2>${D.reviews.map(r=>`<div class="rev"><span class="st">${stars(r.r)}</span> <b>${esc(r.n)}</b><div>${esc(r.t)}</div></div>`).join('')||'<p class="note">Be the first to share your feedback!</p>'}
+<div class="box"><h2>Share your feedback</h2><label>Your name</label><input id="fn"><label>Rating</label><select id="fr"><option value="5">★★★★★ Excellent</option><option value="4">★★★★ Good</option><option value="3">★★★ Okay</option><option value="2">★★ Poor</option><option value="1">★ Bad</option></select><label>Your message</label><textarea id="ft" rows="3"></textarea><button class="btn pri" onclick="sendFb()">Send feedback</button></div></div>
+<footer>© ${esc(D.name)} · Peshawar, Pakistan<br>WhatsApp: +${esc(D.wa)} · <a href="#" style="color:inherit" onclick="view='login';render();return false">Owner login</a></footer>`}
+function card(p){const sz=(p.s||'').split(',').map(x=>x.trim()).filter(Boolean);
+return`<div class="card"><div class="im">${p.img?`<img src="${p.img}" alt="${esc(p.n)}">`:'👗'}${p.out?'<i class="tag">Sold out</i>':''}</div><div class="in"><h3>${esc(p.n)}</h3><small>${esc(p.c)}</small><p>${esc(p.d)}</p><b>${rs(p.p)}</b>${sz.length?`<select id="sz_${p.id}">${sz.map(s=>`<option>${esc(s)}</option>`).join('')}</select>`:''}<button class="btn pri" ${p.out?'disabled':''} onclick="add('${p.id}')">Add to cart</button></div></div>`}
+function add(id){const s=($('#sz_'+id)||{}).value||'';const i=cart.find(x=>x.id===id&&x.s===s);i?i.q++:cart.push({id,s,q:1});toast('Added to cart');render()}
+function openCart(){modal='cart';render()}function closeM(){modal='';render()}
+function sub(){return cart.reduce((a,i)=>{const p=D.products.find(x=>x.id===i.id);return a+(p?p.p*i.q:0)},0)}
+function items(){if(!cart.length)return'<p class="note">Your cart is empty.</p>';return cart.map((i,k)=>{const p=D.products.find(x=>x.id===i.id)||{n:'Item',p:0};return`<div class="ln"><span>${esc(p.n)} ${i.s?'('+esc(i.s)+')':''}<br><small>${rs(p.p)}</small></span><span><button class="btn" onclick="chg(${k},-1)">−</button> ${i.q} <button class="btn" onclick="chg(${k},1)">+</button></span></div>`}).join('')+`<p>Subtotal: <b>${rs(sub())}</b><br>Delivery: <b>${rs(D.del)}</b><br>Total: <b>${rs(sub()+Number(D.del))}</b></p>`}
+function chg(k,d){cart[k].q+=d;if(cart[k].q<1)cart.splice(k,1);$('#ci').innerHTML=items();document.querySelector('.hero')&&0}
+function payInfo(){const m=$('#opm').value;const t={'Easypaisa':D.ep,'JazzCash':D.jc,'Bank Transfer':D.bank}[m];$('#pi').innerHTML=t?`Send full payment <b>${rs(sub()+Number(D.del))}</b> to:<br><b>${esc(t)}</b><br>Then send the payment screenshot on WhatsApp.`:(m==='Cash on Delivery'?'Pay cash when your parcel arrives.':'Payment details will be shared on WhatsApp.')}
+function modalView(){if(modal==='cart')return`<div class="ov" onclick="if(event.target===this)closeM()"><div class="pn"><h2>Your Order <button class="btn" onclick="closeM()">✕</button></h2><div id="ci">${items()}</div>
+<h2 style="font-size:18px">Delivery details</h2><label>Full name</label><input id="on"><label>Phone number</label><input id="op" type="tel"><label>City</label><select id="oc">${CITIES.map(c=>`<option>${c}</option>`).join('')}</select><label>Full address</label><textarea id="oa" rows="2"></textarea>
+<label>Payment method</label><select id="opm" onchange="payInfo()"><option>Cash on Delivery</option><option>Easypaisa</option><option>JazzCash</option><option>Bank Transfer</option></select><p class="note" id="pi">Pay cash when your parcel arrives.</p>
+<button class="btn pri" style="width:100%" onclick="order()">Place order on WhatsApp</button></div></div>`;return''}
+function order(){if(!cart.length)return toast('Cart is empty');const n=val('on'),p=val('op'),c=val('oc'),a=val('oa');if(!n||!p||!c||!a)return toast('Please fill all details');
+const ref='OM'+Date.now().toString().slice(-6);const L=cart.map(i=>{const x=D.products.find(y=>y.id===i.id)||{n:'Item',p:0};return`• ${x.n}${i.s?' ('+i.s+')':''} x${i.q} = ${rs(x.p*i.q)}`}).join('\n');
+const m=`*New Order ${ref} – ${D.name}*\n${L}\nSubtotal: ${rs(sub())}\nDelivery: ${rs(D.del)}\n*Total: ${rs(sub()+Number(D.del))}*\n\nName: ${n}\nPhone: ${p}\nCity: ${c}\nAddress: ${a}\nPayment: ${$('#opm').value}`;
+window.open('https://wa.me/'+D.wa+'?text='+encodeURIComponent(m),'_blank');cart=[];modal='';render();toast('Order ready – please press Send in WhatsApp')}
+function sendFb(){const n=val('fn'),t=val('ft');if(!n||!t)return toast('Please add your name and message');window.open('https://wa.me/'+D.wa+'?text='+encodeURIComponent(`*Feedback for ${D.name}*\n${stars(+$('#fr').value)}\nFrom: ${n}\n${t}`),'_blank');toast('Thank you for your feedback!')}
+function loginView(){return`<div class="wrap" style="max-width:420px"><h2>Owner login</h2><div class="box"><label>Password</label><input id="pw" type="password" placeholder="First time password: omii123"><button class="btn pri" onclick="login()">Login</button> <button class="btn" onclick="view='shop';render()">Back</button></div></div>`}
+async function login(){const v=$('#pw').value;const ok=D.ph?(await hx(v))===D.ph:v==='omii123';if(ok){try{const s=localStorage.getItem('omii_draft');if(s){D=JSON.parse(s);dirty=true}}catch(e){}view='admin';render()}else toast('Wrong password')}
+function adminView(){const T=[['o','Orders & Feedback'],['p','Clothes'],['s','Settings'],['r','Reviews'],['b','Publish & Download']];
+return`<div class="top"><span class="logo">Dashboard</span><span><button class="btn pri" onclick="pub()">${dirty?'● ':''}Save &amp; Publish</button> <button class="btn" onclick="view='shop';render()">View shop</button></span></div><div class="wrap"><div class="tabs">${T.map(t=>`<button class="btn chip ${tab===t[0]?'on':''}" onclick="tab='${t[0]}';editId=null;pend='';render()">${t[1]}</button>`).join('')}</div>${tab==='o'?inboxTab():tab==='p'?prodTab():tab==='s'?setTab():tab==='r'?revTab():backTab()}</div>`}
+function prodTab(){const e=D.products.find(x=>x.id===editId)||{n:'',p:'',c:'',s:'',d:'',img:'',out:false};if(editId&&!pend)pend=e.img;
+return`<div class="box"><h2>${editId?'Edit clothes':'Add new clothes'}</h2><label>Name</label><input id="pn" value="${esc(e.n)}"><div class="row"><div><label>Price (Rs.)</label><input id="pp" type="number" value="${esc(e.p)}"></div><div><label>Category</label><input id="pc" placeholder="Men, Women, Kids" value="${esc(e.c)}"></div></div>
+<label>Sizes (comma separated)</label><input id="ps" placeholder="S,M,L,XL" value="${esc(e.s)}"><label>Description</label><input id="pd" value="${esc(e.d)}"><label>Photo</label><input type="file" accept="image/*" onchange="pick(this)"><div id="pv">${pend?`<img src="${pend}">`:''}</div>
+<label><input type="checkbox" id="po" style="width:auto" ${e.out?'checked':''}> Sold out</label><br><br><button class="btn pri" onclick="saveP()">${editId?'Update':'Add'}</button> ${editId?'<button class="btn" onclick="editId=null;pend=\'\';render()">Cancel</button>':''}</div>
+<div class="box"><h2>My collection (${D.products.length})</h2>${D.products.map(p=>`<div class="ln"><span style="display:flex;gap:10px;align-items:center">${p.img?`<img class="thumb" src="${p.img}">`:'<span class="thumb"></span>'}<span>${esc(p.n)}<br><small>${rs(p.p)} ${p.out?'· Sold out':''}</small></span></span><span><button class="btn" onclick="editId='${p.id}';pend='';render();scrollTo(0,0)">Edit</button> <button class="btn red" onclick="delP('${p.id}')">Delete</button></span></div>`).join('')}</div>`}
+function pick(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,700/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);pend=c.toDataURL('image/jpeg',.75);$('#pv').innerHTML='<img src="'+pend+'">'};im.src=r.result};r.readAsDataURL(f)}
+function saveP(){const n=val('pn'),p=val('pp');if(!n||!p)return toast('Name and price are required');const o={id:editId||'p'+Date.now().toString(36),n,p:Number(p),c:val('pc'),s:val('ps'),d:val('pd'),img:pend,out:$('#po').checked};
+if(editId)D.products[D.products.findIndex(x=>x.id===editId)]=o;else D.products.unshift(o);editId=null;pend='';dirty=true;render();toast('Saved – press Save & Publish when done')}
+function delP(id){if(confirm('Delete this item?')){D.products=D.products.filter(x=>x.id!==id);dirty=true;render()}}
+function setTab(){const f=(l,i,v,t)=>`<label>${l}</label><input id="${i}" value="${esc(v)}" ${t||''}>`;
+return`<div class="box"><h2>Shop settings</h2>${f('Shop name','sn',D.name)}${f('Tagline','st',D.tag)}${f('WhatsApp number (with country code, e.g. 923001234567)','sw',D.wa,'inputmode="numeric"')}${f('Delivery charges (Rs.)','sd',D.del,'type="number"')}${f('Easypaisa number / account name','se',D.ep)}${f('JazzCash number / account name','sj',D.jc)}${f('Bank account (bank, title, IBAN)','sb',D.bank)}
+<label>New password (leave empty to keep current)</label><input id="sp" type="password"><button class="btn pri" onclick="saveS()">Save settings</button></div>`}
+async function saveS(){let w=val('sw').replace(/\D/g,'');if(w.startsWith('0'))w='92'+w.slice(1);if(w.length<10)return toast('Enter a valid WhatsApp number');
+D.name=val('sn')||'Omii';D.tag=val('st');D.wa=w;D.del=Number(val('sd')||0);D.ep=val('se');D.jc=val('sj');D.bank=val('sb');const np=$('#sp').value;if(np){if(np.length<6)return toast('Password must be 6+ characters');D.ph=await hx(np)}dirty=true;render();toast('Saved – press Save & Publish')}
+function revTab(){return`<div class="box"><h2>Add a customer review to show on shop</h2><label>Customer name</label><input id="rn"><label>Rating</label><select id="rr"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label>Review</label><textarea id="rt" rows="3"></textarea><button class="btn pri" onclick="addR()">Add review</button><p class="note">New feedback arrives on your WhatsApp. Copy the good ones here to show them on the shop.</p></div>
+<div class="box">${D.reviews.map((r,i)=>`<div class="ln"><span class="st">${stars(r.r)}</span><span style="flex:1">${esc(r.n)}: ${esc(r.t)}</span><button class="btn red" onclick="D.reviews.splice(${i},1);dirty=true;render()">✕</button></div>`).join('')||'<p class="note">No reviews yet.</p>'}</div>`}
+function addR(){const n=val('rn'),t=val('rt');if(!n||!t)return toast('Fill name and review');D.reviews.unshift({n,r:+$('#rr').value,t});dirty=true;render()}
+function svIB(){try{localStorage.setItem('omii_inbox',JSON.stringify(IB))}catch(e){toast('Phone storage unavailable')}render()}
+function parseMsg(t){const g=k=>{const m=t.match(new RegExp('^'+k+':\\s*(.*)$','mi'));return m?m[1].trim():''};
+if(/Feedback for/i.test(t)){const L=t.split('\n');const i=L.findIndex(l=>/^From:/i.test(l));return{k:'f',n:g('From'),r:(t.match(/★/g)||[]).length||5,t:L.slice(i+1).join(' ').trim(),d:Date.now()}}
+const ref=(t.match(/New Order (\w+)/)||[])[1];if(!ref)return null;
+return{k:'o',ref,n:g('Name'),p:g('Phone'),c:g('City'),a:g('Address'),pm:g('Payment'),tot:(t.match(/Total:\s*(Rs\.[^\n*]*)/)||[])[1]||'',it:t.split('\n').filter(l=>l.trim().startsWith('•')).join('\n'),st:'New',d:Date.now()}}
+function saveMsg(){const m=parseMsg($('#pm').value);if(!m)return toast('Not recognised – paste the full WhatsApp order or feedback message');IB.unshift(m);svIB();toast('Saved')}
+function showRev(i){const x=IB[i];D.reviews.unshift({n:x.n,r:x.r,t:x.t});dirty=true;toast('Added to shop – press Save & Publish')}
+async function exp(){const q=s=>'"'+String(s||'').replace(/"/g,'""')+'"';const rows=[['Ref','Name','Phone','City','Address','Payment','Total','Status'].join(',')].concat(IB.filter(x=>x.k==='o').map(x=>[x.ref,x.n,x.p,x.c,x.a,x.pm,x.tot,x.st].map(q).join(',')));try{const d=window.claude&&await claude.use('downloads');if(!d)return toast('Download not available here');await d.save({filename:'omii-orders.csv',data:rows.join('\n')})}catch(e){toast('Download cancelled')}}
+function ordRow(x,i){return`<div class="rev"><b>#${esc(x.ref)}</b> · ${esc(x.n)} · <b>${esc(x.tot)}</b><br>📞 <a href="tel:${esc(x.p)}">${esc(x.p)}</a> · ${esc(x.c)}<br>${esc(x.a)}<br>💳 ${esc(x.pm)}<br><small style="white-space:pre-line">${esc(x.it)}</small><div style="margin-top:8px"><button class="btn ${x.st==='New'?'pri':''}" onclick="IB[${i}].st=IB[${i}].st==='New'?'Done':'New';svIB()">${x.st==='New'?'Mark delivered':'✓ Delivered (undo)'}</button> <button class="btn red" onclick="IB.splice(${i},1);svIB()">Delete</button></div></div>`}
+function inboxTab(){const n=IB.filter(x=>x.k==='o'&&x.st==='New').length;
+return`<div class="box"><h2>Save a customer order or feedback</h2><p class="note">Every order and feedback arrives on your WhatsApp. Long-press the message, tap Copy, paste it here and press Save. It is kept privately on this phone only.</p><textarea id="pm" rows="5" placeholder="Paste WhatsApp message here"></textarea><button class="btn pri" onclick="saveMsg()">Save</button></div>
+<div class="box"><h2>Orders (${n} new)</h2>${IB.map((x,i)=>x.k==='o'?ordRow(x,i):'').join('')||'<p class="note">No orders saved yet.</p>'}<button class="btn" onclick="exp()">Download orders (CSV)</button></div>
+<div class="box"><h2>Customer feedback</h2>${IB.map((x,i)=>x.k==='f'?`<div class="rev"><span class="st">${stars(x.r)}</span> <b>${esc(x.n)}</b><div>${esc(x.t)}</div><button class="btn" onclick="showRev(${i})">Show on shop</button> <button class="btn red" onclick="IB.splice(${i},1);svIB()">Delete</button></div>`:'').join('')||'<p class="note">No feedback saved yet.</p>'}</div>`}
+function backTab(){return`<div class="box"><h2>Publish</h2><p class="note">Press this after every change so customers see your updates.</p><button class="btn pri" onclick="pub()">Save &amp; Publish</button></div><div class="box"><h2>Download website</h2><p class="note">Saves your whole shop as one file (omii-website.html). You can upload it to free hosting such as Netlify Drop or GitHub Pages for your own link.</p><button class="btn" onclick="dl()">Download website</button></div>`}
+async function pub(){try{const a=window.claude&&await claude.use('artifact');if(!a)return toast('Publishing works only for the page owner');await a.publish(build());dirty=false;toast('Published!')}catch(e){toast('Could not publish: '+((e&&e.code)||'not allowed'))}}
+async function dl(){try{const d=window.claude&&await claude.use('downloads');if(!d)return toast('Download not available here');await d.save({filename:'omii-website.html',data:build()});toast('Downloaded')}catch(e){toast('Download cancelled')}}
+render();
+</script>
+</body></html>
